@@ -40,7 +40,7 @@ const HeroSection = () => {
                       "cursor-default sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
                     )}
                   >
-                    Hi, I am
+                    Hola, soy
                     <br className="md:hidden" />
                   </p>
                 </BlurIn>
@@ -51,50 +51,53 @@ const HeroSection = () => {
                       <h1
                         className={cn(
                           "-ml-[6px] leading-none text-transparent text-slate-800 text-left",
-                          "font-bold text-7xl md:text-7xl lg:text-8xl xl:text-9xl",
+                          "font-bold text-6xl md:text-7xl lg:text-8xl xl:text-8xl",
                           "cursor-default text-edge-outline font-display "
                         )}
                       >
-                        {config.author.split(" ")[0]}
-                        <br className="md:block hiidden" />
-                        {config.author.split(" ")[1]}
+                        José Adrián
+                        <br className="md:block hidden" />
+                        Velásquez
                       </h1>
                     </TooltipTrigger>
                     <TooltipContent
                       side="top"
                       className="dark:bg-white dark:text-black"
                     >
-                      theres something waiting for you in devtools
+                      Especialista en E-commerce 🚀
                     </TooltipContent>
                   </Tooltip>
                 </BlurIn>
-                {/* <div className="md:block hidden bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0 w-screen h-px animate-fade-right animate-glow" /> */}
+
                 <BlurIn delay={1.2}>
                   <p
                     className={cn(
                       "md:self-start md:mt-4 font-medium text-md text-slate-500 dark:text-zinc-400",
-                      "cursor-default sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
+                      "cursor-default sm:text-xl md:text-xl max-w-xl bg-clip-text leading-relaxed"
                     )}
                   >
-                    A Full Stack Web Developer
+                    Ingeniero de Sistemas | Web Developer <br className="hidden md:block"/>
+                    <span className="font-semibold text-slate-700 dark:text-slate-300">
+                      Especialista en E-commerce & Shopify.
+                    </span>
                   </p>
                 </BlurIn>
               </div>
+
               <div className="mt-8 flex flex-col gap-3 w-fit">
                 <Link
-                  href={
-                    "https://drive.google.com/file/d/1MTSsUA8V7Po2AsNXT8kZ5sLOpzC8l7qm/view?usp=sharing"
-                  }
+                  href={"https://drive.google.com/drive/project/1ybCLhUizOLuZ_chR90d3D2fB65AZ6GWi?usp=sharing"}
                   target="_blank"
                   className="flex-1"
                 >
                   <BoxReveal delay={2} width="100%" >
-                    <Button className="flex items-center gap-2 w-full">
+                    <Button className="flex items-center gap-2 w-full hover:bg-emerald-500 hover:text-white transition-colors">
                       <File size={24} />
-                      <p>Resume</p>
+                      <p>Ver CV</p>
                     </Button>
                   </BoxReveal>
                 </Link>
+
                 <div className="md:self-start flex gap-3">
                   <Tooltip delayDuration={300}>
                     <TooltipTrigger asChild>
@@ -103,7 +106,7 @@ const HeroSection = () => {
                           variant={"outline"}
                           className="block w-full overflow-hidden"
                         >
-                          Hire Me
+                          Contrátame
                         </Button>
                       </Link>
                     </TooltipTrigger>
@@ -111,6 +114,7 @@ const HeroSection = () => {
                       <p>pls 🥹 🙏</p>
                     </TooltipContent>
                   </Tooltip>
+
                   <div className="flex items-center h-full gap-2">
                     <Link
                       href={config.social.twitter}
