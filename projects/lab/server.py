@@ -1,0 +1,84 @@
+from http.server import SimpleHTTPRequestHandler
+from socketserver import TCPServer
+
+
+HOST = "127.0.0.1"
+PORT = 8080
+
+
+class LabHandler(SimpleHTTPRequestHandler):
+    """
+    Servidor HTTP utilizado únicamente
+    para pruebas del laboratorio local.
+    """
+
+    def do_GET(self):
+        if self.path == "/":
+            self.send_response(200)
+            self.send_header(
+                "Content-type",
+                "text/html; charset=utf-8",
+            )
+            self.end_headers()
+
+            html = """
+            <!DOCTYPE html>
+            <html lang="es">
+            <head>
+                <meta charset="UTF-8">
+                <title>Security Lab</title>
+            </head>
+            <body>
+                <h1>Security Testing Lab</h1>
+
+                <p>
+                    Servicio HTTP de laboratorio
+                    ejecutándose en localhost.
+                </p>
+
+                <p>
+                    Este servicio existe únicamente
+                    para pruebas controladas del
+                    Vulnerability Auditor.
+                </p>
+            </body>
+            </html>
+            """
+
+            self.wfile.write(
+                html.encode("utf-8")
+            )
+
+            return
+
+        super().do_GET()
+
+
+def main():
+    print(
+        "=== SECURITY LAB SERVER ==="
+    )
+
+    print(
+        f"Servidor: http://{HOST}:{PORT}"
+    )
+
+    print(
+        "Entorno: LOCALHOST"
+    )
+
+    print(
+        "Presiona Ctrl+C para detenerlo."
+    )
+
+    print()
+
+    with TCPServer(
+        (HOST, PORT),
+        LabHandler,
+    ) as server:
+        server.serve_forever()
+
+
+if __name__ == "__main__":
+    main()
